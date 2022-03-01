@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Platform, ScrollView, Text, View } from 'react-native';
 
 const MenuScreen = (props) => {
 	// Creamos una función flecha para invocar en el
@@ -13,11 +13,9 @@ const MenuScreen = (props) => {
 	};
 
 	return (
-		<View
+		<ScrollView
 			style={{
 				flex: 1,
-				justifyContent: 'center',
-				alignItems: 'center',
 			}}>
 			{/* Los botones pueden programar su evento onPress
             de manera local o bien invocando a una constante 
@@ -30,12 +28,19 @@ const MenuScreen = (props) => {
             navigate, necesario para ir a otra pantalla
             props.navigation.navigate('_NAME_SCREEN_');
              */}
+
+			<View style={{
+				marginTop: 40,
+			}}></View>
+
 			<Button
 				title='Ejemplo FlexBox'
 				onPress={() => {
 					props.navigation.navigate('flex');
 				}}
 			/>
+
+			{Platform.OS === 'android' && <Espacio />}
 
 			{/* Si la función onpress no contiene parámetros, 
             se puede indicar directamente como valor
@@ -52,6 +57,8 @@ const MenuScreen = (props) => {
 				onPress={() => clickPantalla('estilos')}
 			/>*/}
 
+			{Platform.OS === 'android' && <Espacio />}
+
 			<Button
 				title='Iconos'
 				onPress={() => {
@@ -59,15 +66,21 @@ const MenuScreen = (props) => {
 				}}
 			/>
 
+			{Platform.OS === 'android' && <Espacio />}
+
 			<Button
 				title='Menu Tab'
 				onPress={() => clickPantalla('menu_tab')}
 			/>
 
+			{Platform.OS === 'android' && <Espacio />}
+
 			<Button
 				title='Menu Drawer'
 				onPress={() => clickPantalla('menu_drawer')}
 			/>
+
+			{Platform.OS === 'android' && <Espacio />}
 
 			<Button
 				title='Controles'
@@ -76,14 +89,31 @@ const MenuScreen = (props) => {
 				}}
 			/>
 
+			{Platform.OS === 'android' && <Espacio />}
+
 			<Button 
 				title='Imagenes'
 				onPress={() => {
 					props.navigation.navigate('imagenes');
 				}}
 			/>
-		</View>
+			
+			{Platform.OS === 'android' && <Espacio />}
+
+			<Button 
+				title='Estados'
+				onPress={() => {
+					props.navigation.navigate('estados');
+				}}
+			/>
+		</ScrollView>
 	);
 };
+
+function Espacio (props) {
+	return (
+		<View style={{marginVertical: 10,}} />
+	);
+}
 
 export default MenuScreen;

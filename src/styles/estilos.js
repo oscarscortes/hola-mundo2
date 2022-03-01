@@ -99,6 +99,30 @@ const estilos = StyleSheet.create({
 	textInputIconLine: {
 		color: '#000000',
 		fontWeight: 'normal',
+	},
+	switchContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		margin: 8,
+		padding: 8,
+	},
+	switchText: {
+		flex: 1,
+		
+	},
+	checkBoxContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		margin: 8,
+		padding: 8,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	checkBoxText: {
+		flex: 1,
+		marginStart: 8,
 	}
 });
 
